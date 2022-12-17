@@ -6,6 +6,6 @@ metadata:
 data:
   myvalue: "Hello World"
   who: {{ required "A valid .Values.who entry required!" .Values.who }}
-  drink: {{  .Values.favorite.drink }}
-  food: {{ quote .Values.favorite.food }}
+  drink: {{  .Values.favorite.drink | repeat  5 | quote | upper }}
+  food: {{ quote .Values.favorite.food  | lower }}
   city: {{.Values.favorite.city | default "Bangalore"}}
